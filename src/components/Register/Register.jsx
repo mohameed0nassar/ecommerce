@@ -64,7 +64,7 @@ let Navigate=useNavigate()
         <Helmet>
                 <title>Register</title>
             </Helmet>
-        <div className="row justify-content-center ">
+        <div className="row justify-content-center my-5">
             <div className="col-md-9">
                 <h3 >Register Now : </h3>
                 {error? <div className='alert alert-danger py-1 text-muted trans'>{ error}</div>:''}

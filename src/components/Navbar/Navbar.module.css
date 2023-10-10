@@ -1,0 +1,6 @@
+@media screen and (max-width:992px) {
+    
+    .nav-link{
+        font-size: .25rem !important;
+    }
+}

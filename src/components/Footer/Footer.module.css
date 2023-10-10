@@ -1,0 +1,15 @@
+footer button{
+    width:25%;
+}
+
+@media screen and (max-width:767px) {
+    footer p,footer button{
+        font-size: .65rem;
+    }
+    footer img{
+        width: 15%;
+    }
+    footer button{
+        width:50%;
+    }
+}

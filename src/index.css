@@ -1,0 +1,142 @@
+/* You can add global styles to this file, and also import other style files */
+@import url('https://fonts.googleapis.com/css2?family=Encode+Sans+Expanded:wght@300&display=swap');
+:root
+{
+    --main-color:#0aad0a;
+    --light-color:#f0f3f2;
+    --shadow: rgba(145,158,171,.2) 0px 2px 4px -1px,rgba(145,158,171,.14) 0px 4px 5px 0px,rgba(145,158,171,.12) 0px 1px 10px 0px;
+    --font-family:'Encode Sans Expanded', sans-serif;
+    --rating-color:#ffc908;
+}
+
+body{
+    font-family: var(--font-family) !important;
+    
+}
+#root{
+    min-height: 100vh;
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+}
+td{
+    width: 7rem;
+    
+}
+.z-up{
+    z-index: 9999999;
+}
+
+.rating-color
+{
+    color: var(--rating-color);
+}
+.cursor-pointer,i
+{
+    cursor: pointer;
+}
+a , a:hover{
+    color: black !important;
+    text-decoration: none !important;
+}
+.product:hover
+{
+    box-shadow: var(--shadow);
+    border: solid 1px var(--main-color);
+}
+.product .btn 
+{
+    transition: transform 1s , opacity 1s;
+    transform: translateY(100%);
+    opacity: 0;
+}
+.product .fa-heart{
+    /* position-absolute top-0 end-0 mt-4 me-4 */
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin-top: 1.5rem;
+    transition: transform 1s , opacity 1s;
+    transform: translateY(-100%);
+    opacity: 0;
+    margin-right: 1.5rem;
+
+}
+.product:hover .btn,.product:hover .fa-heart
+{
+    opacity: 1;
+    transform: translateY(0%);
+
+}
+.font-sm
+{
+    font-size: 14px;
+}
+.text-main
+{
+    color: var(--main-color) !important;
+}
+.bg-main
+{
+    background-color: var(--main-color) !important;
+}
+.bg-main-light 
+{
+    background-color: var(--light-color) !important;
+}
+.trans{
+  transition:all .4s ease-in-out;
+}
+.fs-p{
+    font-size: .75rem;
+}
+.fs-pg{
+    font-size: .5rem;
+}
+.slick-prev,.slick-next{
+    z-index: -1;
+}
+.productsOrder td{
+    text-align: center;
+    width: 10rem !important;
+    padding: .5rem !important;
+
+}
+.border-main,.productsOrder td{
+    border: 1px solid var(--main-color) !important;
+}
+.cate{
+    position: relative;
+    padding: .5rem;
+   
+}
+.cate h2{
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    margin: .5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-weight: bolder;
+    z-index: 3;
+    font-size: 1.5rem;
+    opacity: 0;
+    transition: all .4s ease-in-out;
+}
+.cate h2::after{
+    content: '';
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    background-color: var(--main-color);
+    z-index: -1;
+    opacity: .4;
+
+}
+
+.cate:hover h2{
+    opacity: 1;
+}

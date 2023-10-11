@@ -58,7 +58,7 @@ function Login() {
         <Helmet>
                 <title>Login</title>
         </Helmet>
-        <div className="row justify-content-center my-5">
+        <div className="row justify-content-center my-5 py-3">
             <div className="col-md-9">
                 <h3 >Login Now : </h3>
                 {error? <div className='alert alert-danger py-1 text-muted trans'>{ error}</div>:''}

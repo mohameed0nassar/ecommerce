@@ -9,7 +9,8 @@ import { Helmet } from 'react-helmet';
 function Orders() {
 
     let { userId } = useContext(UserContext)
-
+    window.location.href = 'https://mohameed0nassar.github.io/ecommerce/allorders'
+    
     function getAllOrders() {
        if (userId) {
            return axios.get(`https://ecommerce.routemisr.com/api/v1/orders/user/${userId}`)

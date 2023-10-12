@@ -18,7 +18,7 @@ function Footer() {
                     <p className='text-muted'>we will send you a link , open it on your phone to download the app</p>
                 <div className='d-flex justify-content-md-between mt-3 flex-lg-row flex-column px-3 mb-5'>
                     <input type="text" className='form-control me-md-3 me-0 ' />
-                    <button className='btn bg-main text-white '> Share App Link</button>
+                    <button className='btn bg-main text-white my-2 m-md-0 '> Share App Link</button>
                 </div>
                 <hr className='m-0'/>
                 <div className='d-flex justify-content-md-between mt-3 flex-lg-row flex-column   '>

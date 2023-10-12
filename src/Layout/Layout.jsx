@@ -18,6 +18,7 @@ function Layout() {
     if (localStorage.getItem('name') !==null) {
       setUserName(localStorage.getItem('name'))
     }
+    
   }, []);
   return <>
     <Navbar/>

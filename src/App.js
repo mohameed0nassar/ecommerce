@@ -26,17 +26,17 @@ const router = createHashRouter([
   {
     path: '', element: <Layout />, children: [
       {index:true,element:<Gurd><Home/></Gurd>},
-      {path:'/cate',element:<Gurd><Categories/></Gurd>},
-      {path:'/brands',element:<Gurd><Brands/></Gurd>},
-      {path:'/products',element:<Gurd><Products/></Gurd>},
-      {path:'/payment',element:<Gurd><Pay/></Gurd>},
-      {path:'/allorders',element:<Gurd><Orders/></Gurd>},
-      {path:'/products',element:<Gurd><Products/></Gurd>},
-      {path:'/product/:id',element:<Gurd><ProductDetails/></Gurd>},
-      {path:'/register',element:<Register/>},
-      {path:'/login',element:<Login/>},
-      {path:'/cart',element:<Gurd><Cart/></Gurd>},
-      {path:'/wishlist',element:<Gurd><Wishlist/></Gurd>},
+      {path:'cate',element:<Gurd><Categories/></Gurd>},
+      {path:'brands',element:<Gurd><Brands/></Gurd>},
+      {path:'products',element:<Gurd><Products/></Gurd>},
+      {path:'payment',element:<Gurd><Pay/></Gurd>},
+      {path:'allorders',element:<Gurd><Orders/></Gurd>},
+      {path:'products',element:<Gurd><Products/></Gurd>},
+      {path:'product/:id',element:<Gurd><ProductDetails/></Gurd>},
+      {path:'register',element:<Register/>},
+      {path:'login',element:<Login/>},
+      {path:'cart',element:<Gurd><Cart/></Gurd>},
+      {path:'wishlist',element:<Gurd><Wishlist/></Gurd>},
       {path:'*',element:<Notfound/>}
     ]}
 ])

@@ -35,7 +35,7 @@ function Categories() {
             </Helmet>
 <div className="row my-5 g-3">
             {subCategories.isLoading ?
-                <div className='d-flex justify-content-center align-items-center '>
+                <div className='my-5'>
                     <SpinnerLoading/>
                 </div>
                 : <>

@@ -65,8 +65,9 @@ function ProductDetails() {
 <SpinnerLoading />
                     </div>
             :<>
-             <span className='z-up'><Toaster /></span>
-            <div key={data?.data.data._id} className="row justify-content-center align-items-center my-5">
+                <span className='z-up'><Toaster /></span>
+                <h3 className='mt-5'>Product Details</h3>
+                {data? <div key={data?.data.data._id} className="row justify-content-center align-items-center my-5">
                 <div className="col-md-4">
                     <div className='p-3 mb-2'>
                      
@@ -94,7 +95,7 @@ function ProductDetails() {
                     <button onClick={()=>cartAdding(data?.data.data._id)} className='btn bg-main text-white text-center w-100 my-2'>Add To Cart</button>
                     
                     </div>
-            </div>
+            </div>:null}
             </>
             }
     </> 

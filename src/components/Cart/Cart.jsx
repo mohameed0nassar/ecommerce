@@ -107,7 +107,7 @@ useEffect(() => {
     <span className='z-up'><Toaster /></span>
                     
     {cartProducts != null ? <>
-      <div className='d-flex justify-content-between align-items-center '>
+      <div className='d-flex justify-content-md-between flex-md-row flex-column  align-items-center '>
         <h3 className='h6 text-main mb-3'>Total Cart Products Price : {cartProducts.totalCartPrice} EGP </h3>
         <div>
           <button className='btn text-main border-main' onClick={()=>{paymentNav('/payment')}}>Checkout</button>

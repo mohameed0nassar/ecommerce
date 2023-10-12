@@ -35,7 +35,8 @@ function Login() {
             setUserName(data.user.name)
             setUserEmail(data.user.email)
             localStorage.setItem('token', data.token)
-            localStorage.setItem('name',data.user.name)
+            localStorage.setItem('name', data.user.name)
+            window.location.reload()
         } 
     }
     const {values,handleBlur,handleSubmit,handleChange,errors,touched,isValid,dirty} = useFormik(

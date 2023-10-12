@@ -18,15 +18,19 @@ body{
     display: grid;
     grid-template-rows: auto 1fr auto;
 }
+.space-nowrap{
+    white-space: nowrap;
+}
 td{
     width: 7rem;
     
 }
 .z-up{
-    z-index: 9999999;
+    z-index: 9999999 !important;
+    position: relative;
 }
 .z-down{
-    z-index: 999999;
+    z-index: 99999;
 }
 
 .rating-color

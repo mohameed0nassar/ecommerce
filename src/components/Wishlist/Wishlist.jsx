@@ -66,7 +66,6 @@ function Wishlist() {
             </Helmet>
          <div className="row bg-light my-5 p-4">
       
-      <h2>Wish List</h2>
       {isLoading ?
         <div className='my-5'>
          <SpinnerLoading />
@@ -74,6 +73,7 @@ function Wishlist() {
                 : <>
                 <span className='z-up'><Toaster /></span>
                     
+                <h2>Wish List</h2>
           {
             wishProducts?.map(item => (
               <div key={item._id} className="row align-items-center ">
@@ -90,7 +90,7 @@ function Wishlist() {
                 </div>
                 <div className="col-md-10 p-4 d-flex justify-content-between align-items-center ">
                   <div className='w-100'>
-                    <h5 className='h6 d-flex  justify-content-between '>{item.title} <span onClick={()=>{goToProductDetails(item._id)}} className='text-main cursor-pointer'>Product Details</span></h5>
+                    <h5 className='h6 d-flex  justify-content-between '>{item.title} <span onClick={()=>{goToProductDetails(item._id)}} className='text-main cursor-pointer space-nowrap'>Product Details</span></h5>
                     <p className='text-main d-flex justify-content-between '>Price : {item.price} EGP <i onClick={()=>{removeProduct(item._id)}} className='fas fa-heart text-main cursor-pointer'> remove</i></p>
                     
                  <button onClick={()=>{cartAdding(item._id)}} className='btn bg-main text-white w-100 mt-3'>Add To Cart</button>

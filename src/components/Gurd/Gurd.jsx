@@ -5,7 +5,7 @@ import { Navigate } from 'react-router-dom';
 function Gurd({children}) {
     
     if (window.location.hash==='allorders') {
-        return <Navigate to={'/allorders'}/>
+        return <Navigate to={'#/allorders'}/>
     }
     if (localStorage.getItem('token')!==null) {
         return children

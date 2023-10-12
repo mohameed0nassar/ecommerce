@@ -10,11 +10,17 @@ function Orders() {
 
     let { userId } = useContext(UserContext)
 
-   function getAllOrders(userId) {
-    return axios.get(`https://ecommerce.routemisr.com/api/v1/orders/user/${userId}`)
+    function getAllOrders() {
+       if (userId) {
+           return axios.get(`https://ecommerce.routemisr.com/api/v1/orders/user/${userId}`)
+           
+        } else {
+            return axios.get(`https://ecommerce.routemisr.com/api/v1/orders/user/${localStorage.getItem('id')}`)
+           
+       }
 }
 
-    let {data ,isLoading}=useQuery(['getAllOrder',userId],()=>getAllOrders(userId))
+    let {data ,isLoading}=useQuery('getAllOrder',getAllOrders)
 
     return <>
         <Helmet>

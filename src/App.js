@@ -26,7 +26,7 @@ const router = createHashRouter([
   {
     path: '', element: <Layout />, children: [
       {index:true,element:<Gurd><Home/></Gurd>},
-      {path:'cate',element:<Gurd><Categories/></Gurd>},
+      {path:'cate',element:<Gurd><Categories/></Gurd>,},
       {path:'brands',element:<Gurd><Brands/></Gurd>},
       {path:'products',element:<Gurd><Products/></Gurd>},
       {path:'payment',element:<Gurd><Pay/></Gurd>},

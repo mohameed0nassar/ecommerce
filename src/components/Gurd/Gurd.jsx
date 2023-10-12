@@ -4,8 +4,9 @@ import { Navigate } from 'react-router-dom';
 
 function Gurd({children}) {
     
-    if (window.location.hash==='allorders') {
-        return <Navigate to={'#/allorders'}/>
+    if (window.location.href==='https://mohameed0nassar.github.io/ecommerce//allorders'
+    ) {
+        return window.location.href='https://mohameed0nassar.github.io/ecommerce/#/allorders'
     }
     if (localStorage.getItem('token')!==null) {
         return children

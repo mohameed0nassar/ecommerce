@@ -6,7 +6,7 @@ function Gurd({children}) {
     let orders =useNavigate()
     if (window.location.href==='https://mohameed0nassar.github.io/ecommerce/allorders'
     ) {
-        return orders('/allorders')
+        orders('/allorders')
     }
     if (localStorage.getItem('token')!==null) {
         return children

@@ -50,7 +50,7 @@ function deleteProductsInCart() {
     .catch(err => err)
 }
 function payment(cartId,shippingAddress) {
-    return axios.post(`https://ecommerce.routemisr.com/api/v1/orders/checkout-session/${cartId}?url=https://mohameed0nassar.github.io/ecommerce`, {
+    return axios.post(`https://ecommerce.routemisr.com/api/v1/orders/checkout-session/${cartId}?url=${'https://mohameed0nassar.github.io/ecommerce/#'}`, {
             shippingAddress
         }, {
             headers 

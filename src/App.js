@@ -30,7 +30,7 @@ const router = createHashRouter([
       {path:'brands',element:<Gurd><Brands/></Gurd>},
       {path:'products',element:<Gurd><Products/></Gurd>},
       {path:'payment',element:<Gurd><Pay/></Gurd>},
-      // {path:'allorders',element:<Gurd><Orders/></Gurd>},
+      {path:'allorders',element:<Gurd><Orders/></Gurd>},
       {path:'products',element:<Gurd><Products/></Gurd>},
       {path:'product/:id',element:<Gurd><ProductDetails/></Gurd>},
       {path:'register',element:<Register/>},

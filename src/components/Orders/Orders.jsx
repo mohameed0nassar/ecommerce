@@ -9,7 +9,6 @@ import { Helmet } from 'react-helmet';
 function Orders() {
 
     let { userId } = useContext(UserContext)
-    window.location.href = 'https://mohameed0nassar.github.io/ecommerce/allorders'
     
     function getAllOrders() {
        if (userId) {

@@ -45,7 +45,18 @@ function Navbar() {
         let { data } = await getWishList()
             setWishCount(data?.count)
         setWishItemId(data?.data.map(item => item._id))
-        }
+    }
+    
+    let navItems = document.querySelectorAll('.nav-item')
+    for (const navItem of navItems) {
+        navItem.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                left: 0,
+                behavior: "smooth",
+              });
+        })
+    }
     useEffect(() => { 
         counterCart()
         counterWish()

@@ -4,7 +4,7 @@ import { Navigate } from 'react-router-dom';
 
 function Gurd({children}) {
     
-    if (window.location.href==='https://mohameed0nassar.github.io/ecommerce//allorders'
+    if (window.location.href==='https://mohameed0nassar.github.io/ecommerce/allorders'
     ) {
         return window.location.href='https://mohameed0nassar.github.io/ecommerce/#/allorders'
     }

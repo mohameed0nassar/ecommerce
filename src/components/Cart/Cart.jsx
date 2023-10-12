@@ -135,7 +135,7 @@ useEffect(() => {
                     visible={true}
                 />
               : <p onClick={() => remove(item.product._id)} className='cursor-pointer mt-5'><i className='fas fa-trash text-main'></i> Remove</p>}
-              {wishItemId.filter(itemId => itemId === item.product._id).length ?
+              {wishItemId?.filter(itemId => itemId === item.product._id).length ?
                 <i onClick={() => removeProductFromWishlist(item.product._id)} className='fas fa-heart text-main cursor-pointer fs-5 '></i>
                 :
                 <i onClick={() => addProductInWishlist(item.product._id)} className='far fa-heart text-main cursor-pointer fs-5'></i>

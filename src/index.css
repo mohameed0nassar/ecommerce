@@ -25,6 +25,9 @@ td{
 .z-up{
     z-index: 9999999;
 }
+.z-down{
+    z-index: 999999;
+}
 
 .rating-color
 {

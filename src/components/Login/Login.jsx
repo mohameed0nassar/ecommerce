@@ -17,7 +17,7 @@ function Login() {
     const passRegExp=/^[A-Z][a-z0-9]{5,20}$/
     const validationSchema = Yup.object({
         email: Yup.string().email('email format is not valid example@yahoo.com').required('* Required'),
-        password: Yup.string().matches(passRegExp, 'password is not valid').required('* Required'),
+        password: Yup.string().matches(passRegExp, 'password is not valid "first letter must be capital"').required('* Required'),
     })
 
     async function loginSubmit(values) {
@@ -58,7 +58,7 @@ function Login() {
         <Helmet>
                 <title>Login</title>
         </Helmet>
-        <div className="row justify-content-center my-5 py-3">
+        <div className="row justify-content-center my-5 py-3 ">
             <div className="col-md-9">
                 <h3 >Login Now : </h3>
                 {error? <div className='alert alert-danger py-1 text-muted trans'>{ error}</div>:''}

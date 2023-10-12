@@ -52,7 +52,7 @@ function Navbar() {
     },[])
     return <>
 
-       <nav className="navbar navbar-expand-lg navbar-light bg-light fixed-top z-up shadow-sm ">
+       <nav className="navbar navbar-expand-lg navbar-light bg-light fixed-top z-down shadow-sm ">
           <div className="container">
             <Link to=''><img src={FreshCart} className='w-100' alt="" /></Link>
             <button className="navbar-toggler d-lg-none" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavId" aria-controls="collapsibleNavId"

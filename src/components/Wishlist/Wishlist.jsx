@@ -14,7 +14,8 @@ function Wishlist() {
     let [wishProducts, setWishProducts] = useState([])
     let [isLoading, setIsLoading] = useState(false)
     let productDetails = useNavigate()
-    function goToProductDetails(id) {
+  function goToProductDetails(id) {
+      
         productDetails(`/product/${id}`)
     }
     async function cartAdding(id) {
@@ -28,7 +29,14 @@ function Wishlist() {
             setCartCount(data.numOfCartItems)
         }
     }
-    async function removeProduct(id) {
+  async function removeProduct(id) {
+    
+      window.scrollTo({
+          top: 0,
+          left: 0,
+          behavior: "smooth",
+        });
+  
         let { data } = await removeFromWishList(id)
         if (data?.status === "success") {
             

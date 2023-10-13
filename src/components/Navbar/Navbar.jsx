@@ -81,13 +81,20 @@ function Navbar() {
               </li>
              
                         <li className="nav-item">
-                    <NavLink to='brands'>{({ isActive }) => (
-                        <span className={`nav-link ${isActive?'text-main fw-bold ':''}`} >Brands</span>
-                    )}</NavLink>
-              </li>
-                        <li className="nav-item">
                     <NavLink to='products'>{({ isActive }) => (
                         <span className={`nav-link ${isActive?'text-main fw-bold ':''}`} >Products</span>
+                    )}</NavLink>
+                        </li>
+                        
+                            <li className="nav-item">
+                        <NavLink to='cate'>{({ isActive }) => (
+                            <span className={`nav-link ${isActive?'text-main fw-bold ':''}`} >Categories</span>
+                        )}</NavLink>
+                  </li>
+             
+                        <li className="nav-item">
+                    <NavLink to='brands'>{({ isActive }) => (
+                        <span className={`nav-link ${isActive?'text-main fw-bold ':''}`} >Brands</span>
                     )}</NavLink>
               </li>
               <li className="nav-item">
@@ -101,12 +108,6 @@ function Navbar() {
                     )}</NavLink>
               </li>
 
-                        <li className="nav-item">
-                    <NavLink to='cate'>{({ isActive }) => (
-                        <span className={`nav-link ${isActive?'text-main fw-bold ':''}`} >Categories</span>
-                    )}</NavLink>
-              </li>
-         
           </ul>:null}
                     <ul className="navbar-nav ms-auto mt-2 mt-lg-0">
                     <li className="nav-item d-flex align-items-center mb-lg-0  mb-2">

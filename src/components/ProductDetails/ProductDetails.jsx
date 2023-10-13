@@ -13,7 +13,13 @@ import { Helmet } from 'react-helmet';
 
 function ProductDetails() {
     let { addToCart, setCartCount } = useContext(CartContext)
-    let { addToWishList,setWishCount,setWishItemId,wishItemId,removeFromWishList} = useContext(wishListContext)
+    let { addToWishList, setWishCount, setWishItemId, wishItemId, removeFromWishList } = useContext(wishListContext)
+     window.scrollTo({
+            top: 0,
+            left: 0,
+            behavior: "smooth",
+          });
+    
     async function addProductInWishlist(id) {
       let { data } = await addToWishList(id)
     
@@ -66,7 +72,7 @@ function ProductDetails() {
                     </div>
             :<>
                 <span className='z-up'><Toaster /></span>
-                <h3 className='mt-5'>Product Details</h3>
+                <h3 className='mt-5 text-main fw-bold '>Product Details</h3>
                 {data? <div key={data?.data.data._id} className="row justify-content-center align-items-center my-5">
                 <div className="col-md-4">
                     <div className='p-3 mb-2'>

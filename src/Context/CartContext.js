@@ -8,7 +8,10 @@ import { createContext } from "react";
 
 export let CartContext = createContext()
 
-export default function CartContextProvider({children}) {
+export default function CartContextProvider({ children }) {
+    const params = {
+        url:"https://mohameed0nassar.github.io/ecommerce/#"
+    }
     const headers ={
         token:localStorage.getItem('token')
     }
@@ -50,9 +53,10 @@ function deleteProductsInCart() {
     .catch(err => err)
 }
 function payment(cartId,shippingAddress) {
-    return axios.post(`https://ecommerce.routemisr.com/api/v1/orders/checkout-session/${cartId}?url=${'https://mohameed0nassar.github.io/ecommerce/#'}`, {
+    return axios.post(`https://ecommerce.routemisr.com/api/v1/orders/checkout-session/${cartId}`, {
             shippingAddress
-        }, {
+    }, {
+            params,
             headers 
         }).then(res => res)
         .catch(err => err)

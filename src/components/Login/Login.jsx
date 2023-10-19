@@ -1,4 +1,4 @@
-import React, { memo, useCallback, useContext, useEffect, useState} from 'react'
+import React, { memo, useContext, useEffect, useState} from 'react'
 // import Styles from './Login.module.css'
 import { useFormik } from 'formik';
 import * as Yup from 'yup'
@@ -7,7 +7,7 @@ import { Bars } from 'react-loader-spinner';
 import {  useNavigate } from 'react-router-dom';
 import { UserContext } from '../../Context/UserContext';
 import { Helmet } from 'react-helmet';
-
+import Swal from "sweetalert2";
 
 function Login() {
     let[isLoading,setIsLoading]=useState(false)
@@ -19,7 +19,7 @@ function Login() {
         email: Yup.string().email('email format is not valid example@yahoo.com').required('* Required'),
         password: Yup.string().matches(passRegExp, 'password is not valid "first letter must be capital"').required('* Required'),
     })
-
+    
     async function loginSubmit(values) {
         setIsLoading(true)
         let { data } = await axios.post('https://ecommerce.routemisr.com/api/v1/auth/signin', values)
@@ -53,8 +53,125 @@ function Login() {
         }
     )
     
-
-
+    function forgotPassword() {
+        Swal.fire({
+          title: "Your Email",
+          html: `
+              <input type="email" placeholder="Enter your email" id="email" name="email"  class="form-control"/>
+              `,
+          showCancelButton: true,
+          confirmButtonText: "Add",
+          showLoaderOnConfirm: true,
+          preConfirm: () => {
+              const email = document.getElementById("email")?.value;
+              localStorage.setItem('changePass',email)
+            return { email };
+          },
+          allowOutsideClick: () => !Swal.isLoading(),
+        }).then((result) => {
+          if(result.value){
+            sendData({
+              email: result?.value.email,
+             
+            });
+          }
+         
+        });
+      }
+    async function sendData(email) {
+        let {data} = await axios.post('https://ecommerce.routemisr.com/api/v1/auth/forgotPasswords', 
+        email
+        )
+        if (data.statusMsg === 'success') {
+            Swal.fire({
+                title: data.message,
+                html: `
+                    <input type="tel" placeholder="Enter the code you have received" id="resetCode" name="resetCode"  class="form-control"/>
+                    `,
+                showCancelButton: true,
+                confirmButtonText: "Add",
+                showLoaderOnConfirm: true,
+                preConfirm: () => {
+                    const resetCode = document.getElementById("resetCode")?.value;
+                  return { resetCode };
+                },
+                allowOutsideClick: () => !Swal.isLoading(),
+              }).then((result) => {
+                if(result.value){
+                  sendCode({
+                    resetCode: result?.value.resetCode,
+                   
+                  });
+                }
+               
+              });
+       }
+        
+    }
+    async function sendCode(resetCode) {
+        let {data} = await axios.post('https://ecommerce.routemisr.com/api/v1/auth/verifyResetCode', 
+        resetCode
+        )
+       if (data.status==='Success') {
+        Swal.fire({
+            title: 'enter new password',
+            html: `
+            <span >must start with Capital letter and more than 6 letter</span> <br/>
+                <input type="tel" placeholder="Enter new password" id="newPassword" name="newPassword"  class="form-control mb-2"/>
+                `,
+            showCancelButton: true,
+            confirmButtonText: "Add",
+            showLoaderOnConfirm: true,
+            preConfirm: () => {
+                const newPassword = document.getElementById("newPassword")?.value;
+              return { newPassword };
+            },
+            allowOutsideClick: () => !Swal.isLoading(),
+          }).then((result) => {
+            if(result.value){
+              resetPassword({
+                newPassword: result?.value.newPassword,
+               email:localStorage.getItem('changePass')
+              });
+            }
+           
+          });
+       }
+    }
+    async function resetPassword({newPassword,email}) {
+        let {data}= await axios.put('https://ecommerce.routemisr.com/api/v1/auth/resetPassword',
+        {newPassword,email}
+        )
+        if (data.token) {
+            Navigate('/')
+            setUserToken(data.token)
+            setUserEmail(localStorage.getItem('changePass'))
+            localStorage.setItem('token', data.token)
+            localStorage.removeItem('changePass')
+            window.location.reload()
+            Swal.fire({
+                position: "center",
+                icon: "success",
+                title: "Your password Changed",
+                showConfirmButton: false,
+                timer: 1000,
+              });
+        } else {
+            Swal.fire({
+                position: "center",
+                icon: data.statusMsg,
+                title: data.message,
+                showConfirmButton: false,
+                timer: 1000,
+              });
+        }
+    }   
+    useEffect(() => { 
+        if (localStorage.getItem('token')) {
+            Navigate('/')
+            
+        }
+    },[])
     return <>
         <Helmet>
                 <title>Login</title>
@@ -87,7 +204,11 @@ function Login() {
                             />
                         </div>
                     : <div className='mt-5 d-flex justify-content-between align-items-center '>
-                            <span className='fa-xs text-main mt-3 cursor-pointer' onClick={()=>{Navigate('/Register')}}>Don't have email</span>
+                            <div className='d-flex flex-column justify-content-between '>
+                                <span className='fa-xs text-main mt-3 cursor-pointer' onClick={() => { forgotPassword()}}>forgot password !</span>
+                                <span className='fa-xs text-main mt-3 cursor-pointer' onClick={() => { Navigate('/Register') }}>Don't have email ?</span>
+                            </div>
+                           
                             <button type='submit' className='btn bg-main text-white' disabled={!(isValid && dirty)}>Login</button>
                         </div>
                     }
